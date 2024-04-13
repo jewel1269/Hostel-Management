@@ -1,0 +1,101 @@
+[
+    
+      {
+        "id": 1,
+        "segment_name": "Hotels",
+        "estate_title": "Luxury Beach Resort",
+        "image": "beach_resort.jpg",
+        "description": "Experience ultimate luxury with breathtaking ocean views and world-class amenities.",
+        "price": "$500 per night",
+        "status": "rent",
+        "area": "5000 sq ft",
+        "location": "Tropical Paradise Island",
+        "facilities": ["Beachfront access", "Infinity pool", "Spa", "Gourmet restaurants"]
+      },
+      {
+        "id": 2,
+        "segment_name": "Motels",
+        "estate_title": "Cozy Roadside Motel",
+        "image": "roadside_motel.jpg",
+        "description": "Quaint and comfortable accommodation perfect for road trip pit stops.",
+        "price": "$80 per night",
+        "status": "rent",
+        "area": "1000 sq ft",
+        "location": "On Route 66",
+        "facilities": ["Parking", "Free Wi-Fi", "24-hour front desk"]
+      },
+      {
+        "id": 3,
+        "segment_name": "Resorts",
+        "estate_title": "Mountain Retreat Spa Resort",
+        "image": "mountain_retreat.jpg",
+        "description": "Escape to serenity among towering peaks and indulge in rejuvenating spa treatments.",
+        "price": "$300 per night",
+        "status": "rent",
+        "area": "3000 sq ft",
+        "location": "Alpine Wilderness",
+        "facilities": ["Spa", "Fitness center", "Hiking trails", "Fine dining"]
+      },
+      {
+        "id": 4,
+        "segment_name": "Vacation Rentals",
+        "estate_title": "Seaside Cottage Getaway",
+        "image": "seaside_cottage.jpg",
+        "description": "Charming cottage overlooking the ocean, ideal for a family vacation.",
+        "price": "$200 per night",
+        "status": "rent",
+        "area": "1500 sq ft",
+        "location": "Coastal Village",
+        "facilities": ["Ocean view", "Private deck", "Fully equipped kitchen", "Fireplace"]
+      },
+      {
+        "id": 5,
+        "segment_name": "Lodges",
+        "estate_title": "Rustic Forest Lodge",
+        "image": "forest_lodge.jpg",
+        "description": "Embrace nature in this cozy lodge nestled deep in the forest.",
+        "price": "$150 per night",
+        "status": "sale",
+        "area": "2000 sq ft",
+        "location": "Woodland Wilderness",
+        "facilities": ["Wood-burning fireplace", "Outdoor hot tub", "Hiking trails", "Wildlife viewing"]
+      },
+      {
+        "id": 6,
+        "segment_name": "Guesthouses",
+        "estate_title": "Urban Chic Guesthouse",
+        "image": "urban_guesthouse.jpg",
+        "description": "Modern and stylish accommodation in the heart of the city.",
+        "price": "$120 per night",
+        "status": "rent",
+        "area": "1200 sq ft",
+        "location": "Downtown Metropolis",
+        "facilities": ["Free breakfast", "City views", "Roof terrace", "Complimentary toiletries"]
+      },
+      {
+        "id": 7,
+        "segment_name": "Hotels",
+        "estate_title": "Lakeview Boutique Hotel",
+        "image": "lakeview_hotel.jpg",
+        "description": "Chic hotel overlooking a serene lake, offering personalized service and luxury amenities.",
+        "price": "$400 per night",
+        "status": "rent",
+        "area": "4000 sq ft",
+        "location": "Scenic Lakeside Town",
+        "facilities": ["Lakeview rooms", "Spa", "Fine dining", "Concierge service"]
+      },
+      {
+        "id": 8,
+        "segment_name": "Vacation Rentals",
+        "estate_title": "Mountain Cabin Retreat",
+        "image": "mountain_cabin.jpg",
+        "description": "Cozy cabin nestled in the mountains, perfect for a romantic getaway or family vacation.",
+        "price": "$180 per night",
+        "status": "rent",
+        "area": "1800 sq ft",
+        "location": "Mountain Range",
+        "facilities": ["Mountain views", "Fireplace", "Outdoor grill", "Hiking trails"]
+      }
+    
+    ]
+  
