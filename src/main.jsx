@@ -8,7 +8,8 @@ import Home from './components/Home/Home.jsx';
 import Login from './components/Login/Login.jsx';
 import Register from './components/Register/Register.jsx';
 import CardDetails from './components/CardDetails/CardDetails.jsx';
-import AuthProvider from './components/Provider/AuthProvider,jsx';
+import AuthProvider from './components/AuthProvider/AuthProvider.jsx';
+import UpdateProfile from './components/UpadteProfile/UpdateProfile.jsx';
 
 
 const router = createBrowserRouter([
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: '/details/:id',
         element:<CardDetails></CardDetails>
+      },
+      {
+        path:"/upProfile",
+        element:<UpdateProfile></UpdateProfile>
       }
     ]
   },

@@ -1,43 +1,56 @@
-import { createContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createContext, useEffect, useState } from "react";
 import app from "../Firebase/Firebase.config";
 
-
-export const AuthContext = createContext(null)
-const auth = getAuth(app)
-
+export const AuthContext = createContext(null);
+const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true); // Add loading state
+
     const createUser = (email, password) => {
-        setLoading(true);
+        // setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
     const logOut = () => {
-        setLoading(true);
+        // setLoading(true)
         return signOut(auth)
     }
 
     const signIn = (email, password) => {
-        setLoading(true);
+        // setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
-    
+
     const loginWithGoogle = (provider) => {
-        setLoading(true);
         signInWithPopup(auth, provider)
-    }
+            .then((result) => { console.log(result.user)
+                // Handle successful login
+            })
+            .catch((error) => {
+                
+                console.error("Error signing in with Google:", error);
+            });
+    };
+
     const loginWithGit = (GitProvider) => {
-        setLoading(true);
+        
         signInWithPopup(auth, GitProvider)
+        .then((result) => { console.log(result.user)
+            
+        })
+        .catch((error) => {
+            
+            console.error("Error signing in with Github:", error);
+        });
     }
+
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             console.log("user in the", currentUser)
             setUser(currentUser)
-            setLoading(false); // Set loading to false after user state is updated
+            // setLoading(false);
         })
         return () => {
             unSubscribe();
@@ -46,15 +59,17 @@ const AuthProvider = ({ children }) => {
 
     const authInfo = {
         user,
-        loading, // Include loading state in the context
-        createUser,
+        createUser, 
         signIn,
         logOut,
         loginWithGoogle,
         loginWithGit
-    }
+    };
+
     return (
-        <AuthContext.Provider value={authInfo}> {children}</AuthContext.Provider>
+        <AuthContext.Provider value={authInfo}>
+            {children}
+        </AuthContext.Provider>
     );
 };
 

@@ -41,5 +41,7 @@
   #jewel{
     margin-top: 10px;
     height: 600px;
+    width: 96%;
+    border-radius: 30px;
   }
   
