@@ -10,6 +10,7 @@ import Register from './components/Register/Register.jsx';
 import CardDetails from './components/CardDetails/CardDetails.jsx';
 import AuthProvider from './components/AuthProvider/AuthProvider.jsx';
 import UpdateProfile from './components/UpadteProfile/UpdateProfile.jsx';
+import Top from './components/Top/Top.jsx';
 
 
 const router = createBrowserRouter([
@@ -36,7 +37,8 @@ const router = createBrowserRouter([
       {
         path:"/upProfile",
         element:<UpdateProfile></UpdateProfile>
-      }
+      },
+     
     ]
   },
 ]);

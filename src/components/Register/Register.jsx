@@ -1,23 +1,37 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const [registerError, setRegisterError] = useState("");
+  const [registerSuccess, setRegisterSuccess] = useState("");
 
   const handleRegi = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(email, password);
+    if(password.length < 6){
+        setRegisterError("Password should be 6 character")
+    } else if(!/[A-Z]/.test(password)){
+        setRegisterError("Your password should have at least one Upper Case character");
+        return
+    }
+     else if(!/[a-z]/.test(password)){
+        setRegisterError("Your password should have at least one Lower Case character");
+        return
+    }
 
     //createUser
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
+        setRegisterSuccess("Successfully Registered")
       })
       .then((error) => {
         console.log(error);
+        setRegisterError(error.message)
       });
   };
 
@@ -39,7 +53,7 @@ const Register = () => {
           <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
             <div className="col-span-full sm:col-span-3">
               <label htmlFor="firstname" className="text-sm">
-                First name
+                Name
               </label>
               <input
                 id="name"
@@ -48,6 +62,14 @@ const Register = () => {
                 className="w-full rounded-md focus:ring focus:ring-opacity-75 p-2  focus:ring-violet-400 focus:dark:ring-violet-600 border-2 shadow-xl dark:border-gray-300"
               />
             </div>
+            {
+                registerError && <p>{registerError}</p>
+            }
+            {
+                registerSuccess && <p>{registerSuccess}</p>
+            }
+
+          
             <br />
             <div className="col-span-full sm:col-span-3">
               <label htmlFor="email" className="text-sm">

@@ -1,48 +1,50 @@
-import { NavLink, useLocation } from "react-router-dom";
-import { useContext } from "react";
+import { NavLink } from "react-router-dom";
+import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import image from "../../assets/Yuki@1x-20.0s-1920px-911px.svg";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import { toast } from "react-toastify";
 
 const Login = () => {
-  
-  const { loginWithGoogle, loginWithGit } = useContext(AuthContext);
-
-  const { signIn } = useContext(AuthContext);
-    const location = useLocation()
-    console.log(location)
-
-    const handleLogin = e => {
-        e.preventDefault()
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        console.log(email, password)
+  const { loginWithGoogle, loginWithGit, signIn } = useContext(AuthContext);
+  const [loginError, setLoginError] = useState("");
+  const [successError, setSuccessError] = useState("");
 
 
-        //signIn
-        signIn(email, password)
-            .then(result => {
-                console.log(result.user)
-                
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
 
-            })
-            .then(error => {
-                console.log(error)
-            })
+    if(password.length < 6){
+      setLoginError('Password Should be 6 character')
+      return
     }
+    setLoginError('');
+    setSuccessError('')
 
- 
+    signIn(email, password)
+      .then((result) => {
+        console.log(result.user);
+        setSuccessError("Login successful");
+        
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoginError('Password Dose not match');
+        
+      });
+  };
+
   const handleGoogle = () => {
-   
     const provider = new GoogleAuthProvider();
-   
     loginWithGoogle(provider);
   };
 
-  const handleGithub = () =>{
-    const GitProvider = new GithubAuthProvider()
-    loginWithGit(GitProvider)
-  }
+  const handleGithub = () => {
+    const GitProvider = new GithubAuthProvider();
+    loginWithGit(GitProvider);
+  };
 
   return (
     <div>
@@ -52,13 +54,14 @@ const Login = () => {
         <form onSubmit={handleLogin} className="space-y-6">
           <div className="space-y-1 text-sm">
             <label htmlFor="username" className="block  dark:text-gray-600">
-              Username
+              Email
             </label>
             <input
               type="email"
               name="email"
               id="username"
               placeholder="Email"
+              required
               className="w-full px-4 py-3 border rounded-md border-gray-700 dark:border-gray-300  dark:bg-gray-50  dark:text-gray-800 focus:border-violet-400 focus:dark:border-violet-600"
             />
           </div>
@@ -71,6 +74,7 @@ const Login = () => {
               name="password"
               id="password"
               placeholder="Password"
+              required
               className="w-full px-4 py-3 border rounded-md border-gray-700 dark:border-gray-300 dark:bg-gray-50  dark:text-gray-800 focus:border-violet-400 focus:dark:border-violet-600"
             />
             <div className="flex justify-end text-xs  dark:text-gray-600">
@@ -81,17 +85,19 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="block w-full p-3 text-center rounded-sm   bg-violet-400 dark:bg-violet-600"
+            className="block w-full p-3 text-center rounded-sm bg-violet-400 dark:bg-violet-600"
           >
             Sign in
           </button>
         </form>
+        {loginError && <p className="text-red-500">{loginError}</p>}
+        {successError && <p className="text-green-500">{successError}</p>}
         <div className="flex items-center pt-4 space-x-1">
-          <div className="flex-1 h-px sm:w-16  dark:bg-gray-300"></div>
-          <p className="px-3 text-sm  dark:text-gray-600">
+          <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
+          <p className="px-3 text-sm dark:text-gray-600">
             Login with social accounts
           </p>
-          <div className="flex-1 h-px sm:w-16  dark:bg-gray-300"></div>
+          <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
         </div>
         <div className="flex justify-center space-x-4">
           {/* Button for Google login */}
@@ -108,9 +114,9 @@ const Login = () => {
               <path d="M16 13.714v5.484h9.078c-0.37 2.354-2.745 6.901-9.078 6.901-5.458 0-9.917-4.521-9.917-10.099s4.458-10.099 9.917-10.099c3.109 0 5.193 1.318 6.38 2.464l4.339-4.182c-2.786-2.599-6.396-4.182-10.719-4.182-8.844 0-16 7.151-16 16s7.156 16 16 16c9.234 0 15.365-6.49 15.365-15.635 0-1.052-0.115-1.854-0.255-2.651z"></path>
             </svg>
           </button>
-          
+
           <button
-          onClick={handleGithub}
+            onClick={handleGithub}
             aria-label="Log in with GitHub"
             className="p-3 border rounded-full"
           >

@@ -1,0 +1,51 @@
+[
+    {
+      "id": 5,
+      "segment_name": "Chalets",
+      "estate_title": "Ski Chalet",
+      "image": "https://i.ibb.co/QpvzMq8/Ski-Chalet.webp",
+      "description": "Cozy chalet nestled in the mountains, perfect for winter getaways.",
+      "price": "$300 per night",
+      "status": "rent",
+      "area": "2000 sq ft",
+      "location": "Alpine Ski Resort",
+      "facilities": ["Ski-in/ski-out access", "Hot tub", "Fireplace", "Mountain views"]
+    },
+    {
+      "id": 6,
+      "segment_name": "Apartments",
+      "estate_title": "Modern Urban Loft",
+      "image": "https://i.ibb.co/bsG8T59/Modern-Urban-Loft.jpg",
+      "description": "Chic loft apartment in the heart of the city, with contemporary design and city views.",
+      "price": "$200 per night",
+      "status": "already booked",
+      "area": "1000 sq ft",
+      "location": "Downtown Metropolitan Area",
+      "facilities": ["Balcony", "Fitness center", "Concierge service", "High-speed internet"]
+    },
+    {
+      "id": 7,
+      "segment_name": "Cabins",
+      "estate_title": "Riverside Cabin Retreat",
+      "image": "https://i.ibb.co/GQ3LkT3/Riverside-Cabin-Retreat1.jpg",
+      "description": "Tranquil cabin retreat along a scenic river, offering peace and relaxation.",
+      "price": "$150 per night",
+      "status": "rent",
+      "area": "1200 sq ft",
+      "location": "Riverside Wilderness",
+      "facilities": ["Riverfront deck", "Outdoor fire pit", "Fishing access", "Nature trails"]
+    },
+    {
+      "id": 8,
+      "segment_name": "Bed & Breakfasts",
+      "estate_title": "Victorian Era Bed & Breakfast",
+      "image": "https://i.ibb.co/0FsKCSB/Victorian-Era-Bed-Breakfast.webp",
+      "description": "Elegant bed and breakfast housed in a beautifully restored Victorian mansion.",
+      "price": "$180 per night",
+      "status": "sale",
+      "area": "3000 sq ft",
+      "location": "Historic District",
+      "facilities": ["Gourmet breakfast", "Antique furnishings", "Garden terrace", "Evening tea service"]
+    }
+  ]
+  

@@ -35,14 +35,14 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <NavLink to={"/"}>
-            <button className="btn btn-sm btn-ghost">Home</button>
-          </NavLink>
-          <NavLink to={"/"}>
-            <button className="btn btn-sm btn-ghost">Top Features</button>
-          </NavLink>
-          <NavLink to={"/"}>
-            <button className="btn btn-sm btn-ghost">Contact Us</button>
-          </NavLink>
+              <button className="btn btn-sm btn-ghost">Home</button>
+            </NavLink>
+            <NavLink to={"/topFeature"}>
+              <button className="btn btn-sm btn-ghost">Top Features</button>
+            </NavLink>
+            <NavLink to={"/"}>
+              <button className="btn btn-sm btn-ghost">Contact Us</button>
+            </NavLink>
           </ul>
         </div>
         <img className="lg:h-16 h-8 w-8  lg:w-16" src={logo} alt="" />
@@ -53,7 +53,7 @@ const Navbar = () => {
           <NavLink to={"/"}>
             <button className="btn btn-sm btn-ghost">Home</button>
           </NavLink>
-          <NavLink to={"/"}>
+          <NavLink to={"/topFeature"}>
             <button className="btn btn-sm btn-ghost">Top Features</button>
           </NavLink>
           <NavLink to={"/"}>
@@ -75,6 +75,8 @@ const Navbar = () => {
                     <img
                       alt="Tailwind CSS Navbar component"
                       src={user.photoURL}
+                      className="lg:tooltip"
+                      data-tip="hello"
                     />
                   </div>
                   <ul
@@ -145,9 +147,8 @@ const Navbar = () => {
                       </div>
                     </dialog>
                     <NavLink to={"/upProfile"}>
-                      <span>2.</span>
-                      <button className="btn btn-xs btn-ghost">
-                        
+                      <span className="ml-10">2.</span>
+                      <button className="btn  btn-xs btn-ghost">
                         Update Profile
                       </button>
                     </NavLink>

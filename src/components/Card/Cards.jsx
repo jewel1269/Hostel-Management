@@ -17,7 +17,7 @@ const Cards = ({ item }) => {
     <div
       data-aos="fade-down"
       data-aos-easing="linear"
-      data-aos-duration="3000"
+      data-aos-duration="2000"
       className="flex mt-10 border sha flex-col max-w-lg p-6 bg-slate-100 overflow-hidden rounded-3xl shadow-3xl  transition duration-500 ease-in-out hover:shadow-lg dark:hover:shadow-black/30 "
     >
       <h3 className="text-2xl font-bold mb-3">* {segment_name}</h3>
@@ -60,11 +60,12 @@ const Cards = ({ item }) => {
           <h4 className="text-red-500">Price: {price}</h4>
           <h4>Area: {area}</h4>
         </div>
-        <NavLink to={`/details/${item.id}`}>
+        <NavLink to={`/details/${id}`}>
           <button className="btn btn-success lg:mt-5 w-full btn-sm">
             View Property
           </button>
         </NavLink>
+       
       </div>
     </div>
   );

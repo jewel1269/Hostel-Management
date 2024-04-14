@@ -31,7 +31,7 @@
         "image": "https://i.ibb.co/NnfYDKM/Mountain-Retreat-Spa-Resort.jpg",
         "description": "Escape to serenity among towering peaks and indulge in rejuvenating spa treatments.",
         "price": "$300 per night",
-        "status": "rent",
+        "status": "sale",
         "area": "3000 sq ft",
         "location": "Alpine Wilderness",
         "facilities": ["Spa", "Fitness center", "Hiking trails", "Fine dining"]
@@ -79,7 +79,7 @@
         "image": "https://i.ibb.co/RSzwRx7/Lakeview-Boutique-Hotel.jpg",
         "description": "Chic hotel overlooking a serene lake, offering personalized service and luxury amenities.",
         "price": "$400 per night",
-        "status": "rent",
+        "status": "sale",
         "area": "4000 sq ft",
         "location": "Scenic Lakeside Town",
         "facilities": ["Lakeview rooms", "Spa", "Fine dining", "Concierge service"]
