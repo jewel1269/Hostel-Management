@@ -31,7 +31,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a rel="noopener noreferrer" href="#">
-                    Integrations
+                    Integration
                   </a>
                 </li>
                 <li>
