@@ -12,12 +12,15 @@ import AuthProvider from './components/AuthProvider/AuthProvider.jsx';
 import UpdateProfile from './components/UpadteProfile/UpdateProfile.jsx';
 import Top from './components/Top/Top.jsx';
 import Contact from './components/Conteact/Contact.jsx';
+import ErrorPage from './components/Error/ErrorPage.jsx';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -33,7 +36,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/details/:id',
-        element:<CardDetails></CardDetails>
+        element:<PrivateRoute><CardDetails></CardDetails></PrivateRoute>
       },
       {
         path:"/upProfile",

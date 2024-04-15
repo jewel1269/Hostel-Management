@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CiLocationOn } from "react-icons/ci";
+import 'animate.css';
+
 
 const CardDetails = () => {
   const [property, setProperty] = useState({});
@@ -28,7 +30,7 @@ const CardDetails = () => {
   }, [id]);
 
   return (
-    <div className="hero  min-h-screen  bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-100">
+    <div className="animate__animated animate__lightSpeedInLeft animate hero  min-h-screen  bg-gradient-to-r from-indigo-200 via-purple-100 to-pink-100">
       <div className="hero-content border border-black rounded-3xl shadow-2xl bg-slate-100 shadow-black flex-col gap-10 lg:flex-row">
         <img
           src={property.image}
@@ -68,7 +70,6 @@ const CardDetails = () => {
           </div>
           <button className="btn btn-success btn-sm lg:mt-12 lg:ml-64 btn-outline text-black">Booking</button>
           </div>
-          
         </div>
       </div>
     </div>

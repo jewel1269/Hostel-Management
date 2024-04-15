@@ -1,11 +1,13 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import image from "../../assets/Yuki@1x-20.0s-1920px-911px.svg";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { toast } from "react-toastify";
 
+
 const Login = () => {
+  const navigate = useNavigate()
   const { loginWithGoogle, loginWithGit, signIn } = useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
 
@@ -25,6 +27,7 @@ const Login = () => {
         console.log(result.user);
         
         toast.success("Login Successfully");
+        navigate(location.state)
       })
       .catch((error) => {
         console.log(error);
@@ -35,11 +38,14 @@ const Login = () => {
   const handleGoogle = () => {
     const provider = new GoogleAuthProvider();
     loginWithGoogle(provider);
+    
   };
 
   const handleGithub = () => {
     const GitProvider = new GithubAuthProvider();
     loginWithGit(GitProvider);
+    
+    
   };
 
   return (

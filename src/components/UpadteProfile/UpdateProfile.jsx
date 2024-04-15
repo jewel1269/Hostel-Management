@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { updateProfile } from "firebase/auth";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import 'animate.css';
+
 
 const UpdateProfile = () => {
   const { user } = useContext(AuthContext);
@@ -34,12 +36,12 @@ const UpdateProfile = () => {
       data-aos="fade-down"
       data-aos-easing="linear"
       data-aos-duration="3000"
-      className="flex border lg:ml-[35%] lg:mt-10 p-1.5 mx-auto my-4  bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500lg:mb-10 rounded-xl shadow-xl shadow-black flex-col max-w-md  "
+      className=" flex border p-5 lg:ml-[35%] lg:mt-10 lg:h-[700px] mx-auto my-4  bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500lg:mb-10 rounded-xl shadow-xl shadow-black flex-col max-w-md  "
     >
       <img
         src={user ? user.photoURL : ""}
         alt=""
-        className="flex-shrink-0 shadow-2xl shadow-black lg:rounded-2xl object-cover h-64 rounded-sm sm:h-96 dark:bg-gray-500 aspect-square"
+        className="animate__animated animate__zoomIn   flex-shrink-0 shadow-2xl shadow-black lg:rounded-2xl object-cover h-52 rounded-sm sm:h-96 dark:bg-gray-500 aspect-square"
       />
       <div>
         {showChangeOptions ? (
@@ -60,7 +62,7 @@ const UpdateProfile = () => {
             />
             <button
               onClick={handleSaveChanges}
-              className="btn btn-sm lg:ml-40  btn-success mt-2"
+              className="btn btn-sm mt-10 lg:ml-40  btn-success "
             >
               Update
             </button>
@@ -77,7 +79,7 @@ const UpdateProfile = () => {
             <h3 className="text-xl">Uid: {user ? user.uid : ""}</h3>
             <button
               onClick={() => setShowChangeOptions(true)}
-              className="btn  btn-sm lg:ml-36  btn-success mt-2"
+              className="btn mt-10 btn-sm lg:ml-36  btn-success "
             >
               Update Profile
             </button>

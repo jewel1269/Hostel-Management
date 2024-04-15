@@ -4,6 +4,8 @@ import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Tooltip } from 'react-tooltip'
 import './Active.css'
+import 'animate.css';
+
 
 
 const Navbar = () => {
@@ -106,9 +108,9 @@ const Navbar = () => {
                     </button>
                     <dialog
                       id="my_modal_3"
-                      className="modal sm:modal md:modal   bg-gradient-to-r from-indigo-500  "
+                      className="   modal sm:modal md:modal   bg-gradient-to-r from-indigo-500  "
                     >
-                      <div className="modal-box bg-slate-200 bg-gradient-to-r from-teal-300 to-yellow-100 h-[450px] ">
+                      <div className="  modal-box bg-slate-200 bg-gradient-to-r from-teal-300 to-yellow-100 h-[450px] ">
                         <form method="dialog bg-slate-100">
                           <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
                             ✕
