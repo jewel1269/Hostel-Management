@@ -43,6 +43,7 @@ const Top = ({data}) => {
               ))}
         </div>
       </div>
+      <button className="btn btn-success btn-outline btn-sm mb-2 lg:w-56 lg:ml-[20%]">Booking</button>
     </div>
   );
 };

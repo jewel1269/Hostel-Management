@@ -36,7 +36,7 @@ const Card = () => {
 
       <div className="flex  items-center justify-center ">
          
-        <h1 className="  font-bold mt-10 text-transparent bg-clip-text bg-gradient-to-br from-pink-600 to-green-600 text-center mb-5 text-5xl">
+        <h1 id="topFeatureSection" className="  font-bold mt-10 text-transparent bg-clip-text bg-gradient-to-br from-pink-600 to-green-600 text-center mb-5 text-5xl">
         Top Features
         </h1>
         <span> <IoArrowDownSharp className="animate-bounce w-12 mt-10 h-16"/></span>

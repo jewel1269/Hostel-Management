@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -12,32 +13,36 @@ const Register = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(email, password);
-    if(password.length < 6){
-        setRegisterError("Password should be 6 character")
-    } else if(!/[A-Z]/.test(password)){
-        setRegisterError("Your password should have at least one Upper Case character");
-        return
-    }
-     else if(!/[a-z]/.test(password)){
-        setRegisterError("Your password should have at least one Lower Case character");
-        return
+    if (password.length < 6) {
+      setRegisterError("Password should be 6 character");
+    } else if (!/[A-Z]/.test(password)) {
+      setRegisterError(
+        "Your password should have at least one Upper Case character"
+      );
+      return;
+    } else if (!/[a-z]/.test(password)) {
+      setRegisterError(
+        "Your password should have at least one Lower Case character"
+      );
+      return;
     }
 
     //createUser
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
-        setRegisterSuccess("Successfully Registered")
+        toast.success("Successfully Registered");
       })
       .then((error) => {
         console.log(error);
-        setRegisterError(error.message)
+        setRegisterError(error.message);
       });
   };
 
   return (
-    <section className="p-6 border lg:mb-5 border-black lg:ml-20 lg:mr-20 lg:mt-10 rounded-xl">
-      <form onSubmit={handleRegi}
+    <section className="p-6 border lg:mb-5 bg-gradient-to-r from-teal-300 to-yellow-100 border-black lg:ml-20 lg:mr-20 lg:mt-10 rounded-xl">
+      <form
+        onSubmit={handleRegi}
         noValidate=""
         action=""
         className="container flex flex-col mx-auto space-y-12"
@@ -62,14 +67,7 @@ const Register = () => {
                 className="w-full rounded-md focus:ring focus:ring-opacity-75 p-2  focus:ring-violet-400 focus:dark:ring-violet-600 border-2 shadow-xl dark:border-gray-300"
               />
             </div>
-            {
-                registerError && <p>{registerError}</p>
-            }
-            {
-                registerSuccess && <p>{registerSuccess}</p>
-            }
 
-          
             <br />
             <div className="col-span-full sm:col-span-3">
               <label htmlFor="email" className="text-sm">
@@ -186,11 +184,23 @@ const Register = () => {
                   className="w-10 h-10  rounded-full bg-gray-700 dark:bg-gray-300"
                 />
                 <input type="file" name="" id="" />
+
+                {registerError && (
+                  <p className="lg:text-sm  md:text-md text-sm  font-bold bg-gradient-to-r from-red-700 via--700 to-red-700 inline-block text-transparent bg-clip-text">
+                    {registerError}
+                  </p>
+                )}
+                {registerSuccess && <p className="lg:text-xs md:text-md text-sm  font-bold bg-gradient-to-r from-red-700 via-red-700 to-red-700 inline-block text-transparent bg-clip-text">{registerSuccess}</p>}
+
               </div>
-              <button type="submit" className="btn bg-green-400 w-40 btn-outline lg:ml-[40%]">
+
+              <button
+                type="submit"
+                className="btn bg-green-400 w-40 btn-outline lg:ml-[40%]"
+              >
                 Submit
               </button>
-              <p className="px-6 text-sm text-center  dark:text-gray-600">
+              <p className="px- text-sm text-center  dark:text-gray-600">
                 {" "}
                 have an account?
                 <NavLink to={"/login"}>

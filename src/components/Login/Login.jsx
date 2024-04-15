@@ -8,31 +8,27 @@ import { toast } from "react-toastify";
 const Login = () => {
   const { loginWithGoogle, loginWithGit, signIn } = useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
-  const [successError, setSuccessError] = useState("");
-
 
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    if(password.length < 6){
-      setLoginError('Password Should be 6 character')
-      return
+    if (password.length < 6) {
+      setLoginError("Password Should be 6 character");
+      return;
     }
-    setLoginError('');
-    setSuccessError('')
+    setLoginError("");
 
     signIn(email, password)
       .then((result) => {
         console.log(result.user);
-        setSuccessError("Login successful");
         
+        toast.success("Login Successfully");
       })
       .catch((error) => {
         console.log(error);
-        setLoginError('Password Dose not match');
-        
+        setLoginError("Password Does not match");
       });
   };
 
@@ -91,7 +87,6 @@ const Login = () => {
           </button>
         </form>
         {loginError && <p className="text-red-500">{loginError}</p>}
-        {successError && <p className="text-green-500">{successError}</p>}
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
           <p className="px-3 text-sm dark:text-gray-600">

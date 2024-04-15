@@ -11,6 +11,7 @@ import CardDetails from './components/CardDetails/CardDetails.jsx';
 import AuthProvider from './components/AuthProvider/AuthProvider.jsx';
 import UpdateProfile from './components/UpadteProfile/UpdateProfile.jsx';
 import Top from './components/Top/Top.jsx';
+import Contact from './components/Conteact/Contact.jsx';
 
 
 const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
         path:"/upProfile",
         element:<UpdateProfile></UpdateProfile>
       },
+      {
+        path:"/contact",
+        element: <Contact></Contact>
+      }
      
     ]
   },

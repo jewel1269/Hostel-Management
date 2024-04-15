@@ -2,12 +2,22 @@ import { NavLink } from "react-router-dom";
 import logo from "../../../assets/jewe-removebg-preview.png";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { Tooltip } from 'react-tooltip'
+import './Active.css'
+
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
   const handleSignOut = () => {
     logOut().then().catch();
+  };
+
+  const scrollToTopFeature = () => {
+    const topFeatureSection = document.getElementById("topFeatureSection");
+    if (topFeatureSection) {
+      topFeatureSection.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -30,17 +40,17 @@ const Navbar = () => {
               />
             </svg>
           </div>
-          <ul
+          <ul id="sidebar"
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[100] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <NavLink to={"/"}>
               <button className="btn btn-sm btn-ghost">Home</button>
             </NavLink>
-            <NavLink to={"/topFeature"}>
+            <NavLink  onClick={scrollToTopFeature}>
               <button className="btn btn-sm btn-ghost">Top Features</button>
             </NavLink>
-            <NavLink to={"/"}>
+            <NavLink to={"/contact"}>
               <button className="btn btn-sm btn-ghost">Contact Us</button>
             </NavLink>
           </ul>
@@ -49,14 +59,15 @@ const Navbar = () => {
         <a className="btn btn-ghost text-xl">Hosteller</a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul
+        id="sidebar" className="menu menu-horizontal px-1">
           <NavLink to={"/"}>
             <button className="btn btn-sm btn-ghost">Home</button>
           </NavLink>
-          <NavLink to={"/topFeature"}>
-            <button className="btn btn-sm btn-ghost">Top Features</button>
+          <NavLink onClick={scrollToTopFeature}>
+            <button className="btn text-black btn-sm btn-ghost">Top Features</button>
           </NavLink>
-          <NavLink to={"/"}>
+          <NavLink to={"/contact"}>
             <button className="btn btn-sm btn-ghost">Contact Us</button>
           </NavLink>
         </ul>
@@ -72,16 +83,18 @@ const Navbar = () => {
               {user ? (
                 <div>
                   <div>
-                    <img
+                    <img 
+                    
                       alt="Tailwind CSS Navbar component"
                       src={user.photoURL}
-                      className="lg:tooltip"
-                      data-tip="hello"
+                      data-tooltip-id="my-tooltip" 
+                      data-tooltip-content={user ? user.displayName : "Null"}
                     />
                   </div>
+                  <Tooltip id="my-tooltip" />
                   <ul
                     tabIndex={0}
-                    className="menu menu-sm dropdown-content text-start mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                    className="menu menu-sm dropdown-content text-start mt-3 z-[100] p-2 shadow bg-gradient-to-r from-indigo-300 from-10% via-sky-600 via-30% to-emerald-400 to-90% rounded-box w-52"
                   >
                     <button
                       className="btn btn-xs  btn-ghost text-start"
@@ -93,34 +106,37 @@ const Navbar = () => {
                     </button>
                     <dialog
                       id="my_modal_3"
-                      className="modal  bg-gradient-to-r from-indigo-500  "
+                      className="modal sm:modal md:modal   bg-gradient-to-r from-indigo-500  "
                     >
-                      <div className="modal-box bg-slate-200 ">
+                      <div className="modal-box bg-slate-200 bg-gradient-to-r from-teal-300 to-yellow-100 h-[450px] ">
                         <form method="dialog bg-slate-100">
                           <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
                             ✕
                           </button>
                         </form>
 
-                        <div className="max-w-md  sm:flex sm:space-x-6  ">
-                          <div className="flex-shrink-0 w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
+                        <div className="max-w-md lg:inline-block   sm:flex sm:space-x-6  ">
+                          <div className=" w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
                             <img
                               src={user.photoURL}
                               alt=""
-                              className="object-cover object-center w-full h-full rounded  bg-g dark:bg-gray-500"
+                              className="object-cover shadow-2xl shadow-black object-center lg:ml-7  lg:w-full lg:h-full md:h-full md:w-full h-full w-full rounded  bg-g dark:bg-gray-500"
                             />
                           </div>
-                          <div className="flex flex-col space-y-4">
+                          <div className="flex p-1.5 mx-auto my-4 max-w-sm rounded-xl bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 shadow-2xl shadow-black  border mt-4 flex-col space-y-4">
                             <div>
-                              <h2 className="text-2xl font-semibold">
-                                {user.displayName}
+                              <h2 className="text-2xl  border-black rounded-xl p-2 font-semibold">
+                                Name: {user.displayName}
                               </h2>
-                              <span className="text-sm   dark:text-gray-600">
+                              <hr  />
+
+                              <span className="text-sm hover:border border-black rounded-xl p-2  dark:text-gray-600">
                                 General manager
                               </span>
+                              <hr />
                             </div>
                             <div className="space-y-1">
-                              <span className="flex items-center space-x-2">
+                              <span className="flex items-center ml-2">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
                                   viewBox="0 0 512 512"
@@ -134,13 +150,19 @@ const Navbar = () => {
                                 </svg>
                                 <span className="   dark:text-gray-600">
                                   {user ? (
-                                    <div>Email: {user.email}</div>
+                                    <div className=" border-black text-lg  rounded-xl p-2">
+                                      Email: {user.email}
+                                    </div>
                                   ) : (
                                     <h2>Email:("Null")</h2>
                                   )}
                                 </span>
+                                
                               </span>
-                              <h2>Uid: {user.uid}</h2>
+                              <hr />
+                              <h2 className=" rounded-xl p-2">
+                                Uid: {user.uid}
+                              </h2>
                             </div>
                           </div>
                         </div>

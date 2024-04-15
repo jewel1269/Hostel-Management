@@ -66,7 +66,7 @@ const CardDetails = () => {
                 </button>
               ))}
           </div>
-          <button className="btn btn-success btn-sm lg:mt-12 lg:ml-48 btn-outline text-black">Booking</button>
+          <button className="btn btn-success btn-sm lg:mt-12 lg:ml-64 btn-outline text-black">Booking</button>
           </div>
           
         </div>

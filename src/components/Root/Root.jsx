@@ -3,6 +3,8 @@ import Navbar from "../Home/Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 // ..
 AOS.init();
 
@@ -13,6 +15,7 @@ const Root = () => {
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
