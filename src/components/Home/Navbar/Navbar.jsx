@@ -108,9 +108,9 @@ const Navbar = () => {
                     </button>
                     <dialog
                       id="my_modal_3"
-                      className="   modal sm:modal md:modal   bg-gradient-to-r from-indigo-500  "
+                      className="   modal sm:modal md:modal   bg-gradient-to-r from-indigo-200  "
                     >
-                      <div className="  modal-box bg-slate-200 bg-gradient-to-r from-teal-300 to-yellow-100 h-[450px] ">
+                      <div className="  modal-box bg-slate-200 bg-gradient-to-r from-teal-200 to-yellow-100 h-[450px] ">
                         <form method="dialog bg-slate-100">
                           <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
                             ✕
@@ -125,7 +125,7 @@ const Navbar = () => {
                               className="object-cover shadow-2xl shadow-black object-center lg:ml-7  lg:w-full lg:h-full md:h-full md:w-full h-full w-full rounded  bg-g dark:bg-gray-500"
                             />
                           </div>
-                          <div className="flex p-1.5 mx-auto my-4 max-w-sm rounded-xl bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 shadow-2xl shadow-black  border mt-4 flex-col space-y-4">
+                          <div className="flex p-1.5 mx-auto my-4 max-w-sm rounded-xl bg-gradient-to-r from-rose-100 via-fuchsia-200 to-indigo-100 shadow-2xl shadow-black  border mt-4 flex-col space-y-4">
                             <div>
                               <h2 className="text-2xl  border-black rounded-xl p-2 font-semibold">
                                 Name: {user.displayName}

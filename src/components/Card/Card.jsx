@@ -23,7 +23,7 @@ const Card = () => {
   // console.log(tops);
 
   return (
-    <div className="animate__animated animate__fadeInLeft   mt-5 p-5 bg-gradient-to-r from-purple-100 via-pink-100 to-blue-100">
+    <div className="animate__animated animate__fadeInLeft relative -top-32   mt-5 p-5 bg-gradient-to-r from-purple-100 via-pink-100 to-blue-100">
       <h1 className=" font-bold mt-10 text-transparent bg-clip-text bg-gradient-to-br from-pink-600 to-green-600 text-center mb-5 text-5xl">
         Our Management
       </h1>

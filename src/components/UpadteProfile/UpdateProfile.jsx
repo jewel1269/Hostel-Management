@@ -36,7 +36,7 @@ const UpdateProfile = () => {
       data-aos="fade-down"
       data-aos-easing="linear"
       data-aos-duration="3000"
-      className=" flex border p-5 lg:ml-[35%] lg:mt-10 lg:h-[700px] mx-auto my-4  bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500lg:mb-10 rounded-xl shadow-xl shadow-black flex-col max-w-md  "
+      className=" flex border p-5 lg:ml-[35%] lg:mt-10 lg:h-[700px] mx-auto my-4  bg-gradient-to-r from-rose-200 via-fuchsia-200 to-indigo-200 lg:mb-10 rounded-xl shadow-xl shadow-black flex-col max-w-md  "
     >
       <img
         src={user ? user.photoURL : ""}
