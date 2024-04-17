@@ -9,7 +9,7 @@ Currently, two official plugins are available:
 
 # My Awesome Website
 
-[Live Site](https://assignment-nine-d3172.web.app)
+Live Site: [https://assignment-nine-d3172.web.app](https://assignment-nine-d3172.web.app) 
 
 ## Features
 
