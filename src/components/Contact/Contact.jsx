@@ -1,4 +1,6 @@
 import { Helmet } from "react-helmet-async";
+import GoogleMapReact from 'google-map-react';
+import Map from "../Map/Map";
 
 const Contact = () => {
   return (
@@ -52,6 +54,7 @@ const Contact = () => {
               <span>contact@business.com</span>
             </p>
           </div>
+          <Map></Map>
         </div>
         <form
           noValidate=""

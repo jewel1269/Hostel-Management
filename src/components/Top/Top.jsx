@@ -15,9 +15,6 @@ const Top = ({ data }) => {
   } = data;
   return (
     <div>
-      <Helmet>
-        <title>Top Features </title>
-      </Helmet>
       <div
         data-aos="flip-left"
         data-aos-easing="ease-out-cubic"

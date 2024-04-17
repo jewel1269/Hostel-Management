@@ -16,7 +16,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 const Banner = () => {
   return (
-    <div>
+    <div className="z-[-100]">
       <Swiper id="jewel"
         spaceBetween={30}
         centeredSlides={true}

@@ -3,6 +3,7 @@ import Cards from "./Cards";
 import Top from "../Top/Top";
 import { IoArrowDownSharp } from "react-icons/io5";
 import 'animate.css';
+import { Helmet } from "react-helmet-async";
 
 const Card = () => {
   const [infoCard, setInfoCard] = useState([]);
@@ -22,7 +23,9 @@ const Card = () => {
   }, []);
   // console.log(tops);
 
+
   return (
+    <div>
     <div className="animate__animated animate__fadeInLeft relative -top-32   mt-5 p-5 bg-gradient-to-r from-purple-100 via-pink-100 to-blue-100">
       <h1 className=" font-bold mt-10 text-transparent bg-clip-text bg-gradient-to-br from-pink-600 to-green-600 text-center mb-5 text-5xl">
         Our Management
@@ -38,6 +41,7 @@ const Card = () => {
       <div className="flex  items-center justify-center ">
          
         <h1 id="topFeatureSection" className="   font-bold mt-10 text-transparent bg-clip-text bg-gradient-to-br from-pink-600 to-green-600 text-center mb-5 text-5xl">
+          
         Top Features
         </h1>
         <span> <IoArrowDownSharp className="animate-bounce w-12 mt-10 h-16"/></span>
@@ -47,6 +51,7 @@ const Card = () => {
           <Top key={data.id} data={data}></Top>
         ))}
       </div>
+    </div>
     </div>
   );
 };
