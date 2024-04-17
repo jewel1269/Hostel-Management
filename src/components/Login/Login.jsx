@@ -9,10 +9,11 @@ import { FaRegEyeSlash, FaRegEye } from "react-icons/fa6";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { loginWithGoogle, loginWithGit, signIn } = useContext(AuthContext);
+  const { loginWithGoogle, loginWithGit, signIn, setLoading } = useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
   const [showPassword, setShowPassword] = useState(false); 
   const location = useLocation();
+  console.log(location)
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -28,7 +29,6 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         console.log(result.user);
-
         toast.success("Login Successfully");
         navigate(location.state);
       })
@@ -39,15 +39,27 @@ const Login = () => {
   };
 
   const handleGoogle = () => {
+    console.log("Called")
     const provider = new GoogleAuthProvider();
-    loginWithGoogle(provider);
-    navigate(location.state);
+    loginWithGoogle(provider)
+    .then(data => {
+      setLoading(false)
+      navigate(location.state);
+    })
+    console.log(location.state)
+    
+    
   };
 
   const handleGithub = () => {
     const GitProvider = new GithubAuthProvider();
-    loginWithGit(GitProvider);
-    navigate(location.state);
+    loginWithGit(GitProvider)
+    .then(info => {
+      setLoading(false)
+      navigate(location.state);
+    })
+    console.log(location.state)
+    
   };
 
   return (

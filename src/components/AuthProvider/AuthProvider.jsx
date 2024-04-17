@@ -26,7 +26,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const loginWithGoogle = (provider) => {
-        signInWithPopup(auth, provider)
+      return signInWithPopup(auth, provider)
             .then((result) => { console.log(result.user)
                 toast.success("Login Successfully");
                 setLoading(true)
@@ -42,7 +42,7 @@ const AuthProvider = ({ children }) => {
 
     const loginWithGit = (GitProvider) => {
         
-        signInWithPopup(auth, GitProvider)
+       return signInWithPopup(auth, GitProvider)
         .then((result) => { console.log(result.user)
             toast.success("Login Successfully");
             setLoading(true)
@@ -72,7 +72,8 @@ const AuthProvider = ({ children }) => {
         signIn,
         logOut,
         loginWithGoogle,
-        loginWithGit
+        loginWithGit,
+        setLoading
     };
 
     return (

@@ -9,7 +9,7 @@ Currently, two official plugins are available:
 
 # My Awesome Website
 
-[Live Site](https://www.example.com)
+[Live Site](https://assignment-nine-d3172.web.app)
 
 ## Features
 
@@ -23,6 +23,6 @@ Currently, two official plugins are available:
 - Animated CSS
 - AOS
 - Swiper
-- react-toastify
+- React Leaflet
 
 
