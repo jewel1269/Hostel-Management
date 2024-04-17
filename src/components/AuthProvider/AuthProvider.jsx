@@ -7,20 +7,21 @@ export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
+    const [loading, setLoading] = useState(true)
     const [user, setUser] = useState(null);
 
     const createUser = (email, password) => {
-        // setLoading(true);
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
     const logOut = () => {
-        // setLoading(true)
+        setLoading(true)
         return signOut(auth)
     }
 
     const signIn = (email, password) => {
-        // setLoading(true)
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
@@ -28,7 +29,10 @@ const AuthProvider = ({ children }) => {
         signInWithPopup(auth, provider)
             .then((result) => { console.log(result.user)
                 toast.success("Login Successfully");
-                // Handle successful login
+                setLoading(true)
+                
+            
+                
             })
             .catch((error) => {
                 
@@ -41,6 +45,7 @@ const AuthProvider = ({ children }) => {
         signInWithPopup(auth, GitProvider)
         .then((result) => { console.log(result.user)
             toast.success("Login Successfully");
+            setLoading(true)
             
         })
         .catch((error) => {
@@ -53,7 +58,7 @@ const AuthProvider = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             console.log("user in the", currentUser)
             setUser(currentUser)
-            // setLoading(false);
+            setLoading(false);
         })
         return () => {
             unSubscribe();
@@ -62,6 +67,7 @@ const AuthProvider = ({ children }) => {
 
     const authInfo = {
         user,
+        loading,
         createUser, 
         signIn,
         logOut,

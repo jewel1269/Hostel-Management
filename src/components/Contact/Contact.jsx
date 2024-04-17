@@ -1,6 +1,13 @@
+import { Helmet } from "react-helmet-async";
+
 const Contact = () => {
   return (
-    <section className="py-6  dark:text-gray-900">
+    <div>
+      <Helmet>
+        <title>Contact</title>
+      </Helmet>
+
+<section className="py-6 lg:h-[570px] mt-10 shadow-2xl shadow-black  dark:text-gray-900">
       <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
         <div className="py-6 md:py-0 md:px-6">
           <h1 className="text-4xl font-bold">Get in touch</h1>
@@ -55,7 +62,7 @@ const Contact = () => {
             <input
               type="text"
               placeholder="Leroy Jenkins"
-              className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400 focus:dark:ring-violet-600 dark:bg-gray-100"
+              className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 p-3 focus:ring-violet-400 focus:dark:ring-violet-600 dark:bg-gray-100"
             />
           </label>
           <label className="block">
@@ -63,14 +70,14 @@ const Contact = () => {
             <input
               type="email"
               placeholder="leroy@jenkins.com"
-              className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 focus:ring-violet-400 focus:dark:ring-violet-600 dark:bg-gray-100"
+              className="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-75 p-3 focus:ring-violet-400 focus:dark:ring-violet-600 dark:bg-gray-100"
             />
           </label>
           <label className="block">
             <span className="mb-1">Message</span>
             <textarea
               rows="3"
-              className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 focus:dark:ring-violet-600 dark:bg-gray-100"
+              className="block w-full border border-black rounded-md focus:ring focus:ring-opacity-75 p-3 focus:ring-violet-400 focus:dark:ring-violet-600 dark:bg-gray-100"
             ></textarea>
           </label>
           <button
@@ -82,6 +89,7 @@ const Contact = () => {
         </form>
       </div>
     </section>
+    </div>
   );
 };
 

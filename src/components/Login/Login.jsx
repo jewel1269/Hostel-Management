@@ -1,15 +1,18 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import image from "../../assets/Yuki@1x-20.0s-1920px-911px.svg";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { toast } from "react-toastify";
-
+import { Helmet } from "react-helmet-async";
+import { FaRegEyeSlash, FaRegEye } from "react-icons/fa6";
 
 const Login = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { loginWithGoogle, loginWithGit, signIn } = useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
+  const [showPassword, setShowPassword] = useState(false); 
+  const location = useLocation();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -17,7 +20,7 @@ const Login = () => {
     const password = e.target.password.value;
 
     if (password.length < 6) {
-      setLoginError("Password Should be 6 character");
+      setLoginError("Password should be at least 6 characters");
       return;
     }
     setLoginError("");
@@ -25,31 +28,33 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         console.log(result.user);
-        
+
         toast.success("Login Successfully");
-        navigate(location.state)
+        navigate(location.state);
       })
       .catch((error) => {
         console.log(error);
-        setLoginError("Password Does not match");
+        setLoginError("Email or password is incorrect");
       });
   };
 
   const handleGoogle = () => {
     const provider = new GoogleAuthProvider();
     loginWithGoogle(provider);
-    
+    navigate(location.state);
   };
 
   const handleGithub = () => {
     const GitProvider = new GithubAuthProvider();
     loginWithGit(GitProvider);
-    
-    
+    navigate(location.state);
   };
 
   return (
     <div>
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
       <img className="" src={image} alt="Yuki" />
       <div className="w-full relative lg:bottom-[800px] max-w-md p-8 border shadow-2xl lg:ml-[40%] lg:mt-[8%] md:ml-[20%]  space-y-3 rounded-xl  dark:bg-gray-50  dark:text-gray-800">
         <h1 className="text-2xl font-bold text-center">Login</h1>
@@ -67,18 +72,29 @@ const Login = () => {
               className="w-full px-4 py-3 border rounded-md border-gray-700 dark:border-gray-300  dark:bg-gray-50  dark:text-gray-800 focus:border-violet-400 focus:dark:border-violet-600"
             />
           </div>
-          <div className="space-y-1 text-sm">
+          <div className="space-y-1 text-sm relative">
             <label htmlFor="password" className="block  dark:text-gray-600">
               Password
             </label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               name="password"
               id="password"
               placeholder="Password"
               required
               className="w-full px-4 py-3 border rounded-md border-gray-700 dark:border-gray-300 dark:bg-gray-50  dark:text-gray-800 focus:border-violet-400 focus:dark:border-violet-600"
             />
+            {showPassword ? (
+              <FaRegEye
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 cursor-pointer"
+                onClick={() => setShowPassword(false)}
+              />
+            ) : (
+              <FaRegEyeSlash
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 cursor-pointer"
+                onClick={() => setShowPassword(true)}
+              />
+            )}
             <div className="flex justify-end text-xs  dark:text-gray-600">
               <a rel="noopener noreferrer" href="#">
                 Forgot Password?
@@ -101,7 +117,7 @@ const Login = () => {
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
         </div>
         <div className="flex justify-center space-x-4">
-          {/* Button for Google login */}
+          
           <button
             onClick={handleGoogle}
             aria-label="Log in with Google"
@@ -131,7 +147,7 @@ const Login = () => {
           </button>
         </div>
         <p className="text-xs text-center sm:px-6  dark:text-gray-600">
-          Don't have an account? {/* Link to Register page */}
+          Don't have an account? 
           <NavLink to="/register" className="underline dark:text-gray-800">
             <strong className="text-red-500">Register</strong>
           </NavLink>

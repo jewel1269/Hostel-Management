@@ -5,6 +5,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Tooltip } from 'react-tooltip'
 import './Active.css'
 import 'animate.css';
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -106,6 +107,9 @@ const Navbar = () => {
                     >
                       <span>1.</span> Profile
                     </button>
+                    <Helmet>
+                      <title>Profile</title>
+                    </Helmet>
                     <dialog
                       id="my_modal_3"
                       className="   modal sm:modal md:modal   bg-gradient-to-r from-indigo-200  "
