@@ -20,11 +20,9 @@ Currently, two official plugins are available:
 - **Toast Notifications**: Integrates toast notifications using the react-toastify package for informative user feedback.
 
 ## Packages Used
-
-- React
-- Firebase
-- react-toastify
+- Animated CSS
 - AOS
 - Swiper
--Animated CSS
+- react-toastify
+
 
